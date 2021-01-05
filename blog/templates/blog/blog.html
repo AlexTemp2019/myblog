@@ -55,7 +55,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto">
       <a class="nav-item nav-link" href="{% static 'AboutMe.rtf' %}">About Me</a>
-      <a class="nav-item nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/YouRaAll/">Facebook</a>
+      <a class="nav-item nav-link" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/groups/294187540927893">Facebook</a>
       <a class="nav-item nav-link active" href="#">Blog</a>
     
     </div>
@@ -68,12 +68,12 @@
   <h1 class="pt-4 pb-5">Recent posts</h1>
 
   {% for post in posts.all %}
-  <h2>{{ post.title }}</h2>  
+  <a href="{% url 'specific_post' post.id %}"><h2>{{ post.title }}</h2></a>  
   {{ post.date }}
  <br/>
   <img src="{{ post.image.url }}" height=300 width=300 class="img-fluid">
   <br/>
-  <h4>{{post.text}}</h4>
+  <h4>{{post.get_summary}}</h4>
   <br/>
   {% endfor %}
 

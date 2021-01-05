@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'events.apps.EventsConfig',
     'blog.apps.BlogConfig',
-    ]
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -80,10 +80,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'myawesomeblogdb',
-         'USER': 'postgres',
-         'PASSWORD': '24865',
-         'HOST': '127.0.0.1',
-         'PORT': '5432',
+        'USER': 'postgres',
+        'PASSWORD': '24865',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -124,6 +124,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATICFILES_DIRS = [
+
+    os.path.join(BASE_DIR, 'myawesomeblog/static/')
+
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/coolmedia/' # избегаем одинакового названия папки на диске 'media' и url /coolmedia/ 
+# избегаем одинакового названия папки на диске 'media' и url /coolmedia/
+MEDIA_URL = '/coolmedia/'
